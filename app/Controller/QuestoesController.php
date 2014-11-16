@@ -21,6 +21,7 @@
 				
 		public function add() {
 			if ($this->request->is('post')){
+				$this->request->data['Questao']['autor_id'] = $this->request->data['Questao']['Autor'];
 				$this->Questao->create();
 				if ($this->Questao->save($this->request->data)) {
 					$this->Session->setFlash(__('Sua questão foi salva.'));
