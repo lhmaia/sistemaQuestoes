@@ -1,5 +1,5 @@
 <!-- File: /app/View/Questeos/view.ctp -->
-<h1><?php echo h($questao["Questao"]["enunciado"]); ?></h1>
+<h1><?php echo $questao["Questao"]["enunciado"]; ?></h1>
 <p><small>Autor: <?php echo $questao["Autor"]["nome"]; ?></small></p>
 <p><small> 
 <?php foreach($questao["Assunto"] as $assunto):?>

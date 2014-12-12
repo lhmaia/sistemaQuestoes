@@ -1,8 +1,11 @@
 <!-- File: /app/View/Questoes/add.ctp -->
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/ckeditor/ckeditor.js"></script>
+<script src="/ckeditor/adapters/jquery.js"></script>
 <script>
 	$(document).ready(function(){
+		$("#QuestaoEnunciado").ckeditor();
 		$("#QuestaoTipoProvas").change(function(){
 			if($("#QuestaoTipoProvas").val() == 0) {
 				$("#divAlternativas").show();

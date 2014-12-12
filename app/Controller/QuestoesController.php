@@ -54,5 +54,41 @@
 			//$this->set('autores', $this->Questao->Autor->find('list', array('fields'=>array('id','nome'))));
 			$this->set('autores', $this->Questao->Autor->find('list', array('fields'=>array('id','nome'))));
 		}
+		
+		public function edit($id = null) {
+			if (!$id) {
+				throw new NotFoundException(__('Questão inválida'));
+			}
+			$questao = $this->Questao->findById($id);
+			if (!$questao) {
+				throw new NotFoundException(__('Questão inválida'));
+			}
+			if ($this->request->is(array('questao', 'put'))) {
+				$this->Questao->id = $id;
+				if ($this->Questao->save($this->request->data)) {
+					$this->Session->setFlash(__('Sua questão foi alterada.'));
+					return $this->redirect(array('action' => 'index'));
+				}
+				$this->Session->setFlash(__('Impossível alterar sua questão.'));
+			}
+			if (!$this->request->data) {
+				$this->request->data = $questao;
+			}
+			$this->set('assuntos', $this->Questao->Assunto->find('list', array('fields'=>array('id','nome'))));
+			//$this->set('autores', $this->Questao->Autor->find('list', array('fields'=>array('id','nome'))));
+			$this->set('autores', $this->Questao->Autor->find('list', array('fields'=>array('id','nome'))));
+		}
+		
+		public function delete($id) {
+			if ($this->request->is('get')) {
+				throw new MethodNotAllowedException();
+			}
+			if ($this->Questao->delete($id)) {
+				$this->Session->setFlash(
+					__('A questão com id %s foi excluída.', h($id))
+				);
+				return $this->redirect(array('action' => 'index'));
+			}
+		}
 	}
 ?>
