@@ -63,7 +63,7 @@
 			if (!$questao) {
 				throw new NotFoundException(__('Questão inválida'));
 			}
-			if ($this->request->is(array('questao', 'put'))) {
+			if ($this->request->is(array('post', 'put'))) {
 				$this->Questao->id = $id;
 				if ($this->Questao->save($this->request->data)) {
 					$this->Session->setFlash(__('Sua questão foi alterada.'));
