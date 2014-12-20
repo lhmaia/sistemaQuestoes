@@ -3,9 +3,12 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="/ckeditor/ckeditor.js"></script>
 <script src="/ckeditor/adapters/jquery.js"></script>
+<script src="/ckfinder/ckfinder.js"></script>
 <script>
 	$(document).ready(function(){
-		$("#QuestaoEnunciado").ckeditor();
+		//$("#QuestaoEnunciado").ckeditor();
+		var editor = CKEDITOR.replace( 'QuestaoEnunciado' );
+		CKFinder.setupCKEditor( editor, '/ckfinder/' );
 	});
 </script>
 
