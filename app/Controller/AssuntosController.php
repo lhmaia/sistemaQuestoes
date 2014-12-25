@@ -19,6 +19,7 @@
 		
 		public function add() {
 			if ($this->request->is('post')) {
+				$this->request->data['Assunto']['disciplina_id'] = $this->request->data['Assunto']['Disciplina'];
 				$this->Assunto->create();
 				if ($this->Assunto->save($this->request->data)) {
 					$this->Session->setFlash(__('O assunto foi salvo.'));

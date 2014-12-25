@@ -1,5 +1,7 @@
 <!-- File: /app/View/Questoes/add.ctp -->
 
+<link rel="stylesheet" type="text/css" href="/css/botoes.css">
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="/ckeditor/ckeditor.js"></script>
 <script src="/ckeditor/adapters/jquery.js"></script>
@@ -27,7 +29,9 @@
 				else{
 					$("#AlternativaCerto").append("<option value='" + numLetra + "'>" + letra + "</option>");
 				}
-				$("#divAlternativas").append("<div class='text'>" + letra + ") <input name='data[Alternativa][texto][]' type='text' maxlength='512' id='AlternativaTexto'></input>");				
+				novaDiv = "<div class='text' id='alt" + numLetra + "' >" + letra + ") <input name='data[Alternativa][texto][]' type='text' maxlength='512' id='AlternativaTexto'></input>";
+				novaDiv += "<input type='button' class='miniBotao' id='remove" + numLetra + "' value='Remover' /></div>";
+				$("#divAlternativas").append(novaDiv);
 				
 		});
 	});

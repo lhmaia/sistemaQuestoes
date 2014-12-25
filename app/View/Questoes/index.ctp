@@ -1,4 +1,12 @@
 <!-- File: /app/View/Questoes/index.ctp -->
+<p><?php echo $this->Html->link('Gerenciar Autores',array('controller' => 'autores', 'action' => 'index')); ?></p>
+<p><?php echo $this->Html->link('Gerenciar Disciplinas',array('controller' => 'disciplinas', 'action' => 'index')); ?></p>
+<p><?php echo $this->Html->link('Gerenciar Assuntos',array('controller' => 'assuntos', 'action' => 'index')); ?></p>
+<br>
+
+<hr>
+
+<br>
 <h1>Questões</h1>
 
 <p><?php echo $this->Html->link('Adicionar questão',array('controller' => 'questoes', 'action' => 'add')); ?></p>
